@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Converter — PNG ↔ JPEG</title>
+  <meta name="description" content="Fast, private browser-based PNG and JPEG image converter." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow">IMAGE TOOL</p>
+        <h1>PNG ↔ JPEG Converter</h1>
+        <p class="subtitle">Convert images directly in your browser. Your files never leave your device.</p>
+      </div>
+    </header>
+
+    <section id="dropZone" class="drop-zone" tabindex="0" aria-label="Upload image">
+      <input id="fileInput" type="file" accept="image/png,image/jpeg" hidden />
+      <div class="upload-icon">↑</div>
+      <h2>Drop an image here</h2>
+      <p>or</p>
+      <button id="browseButton" class="primary" type="button">Choose image</button>
+      <p class="hint">PNG or JPEG · up to your browser's supported image size</p>
+    </section>
+
+    <section id="editor" class="panel hidden" aria-live="polite">
+      <div class="file-row">
+        <div class="file-info">
+          <div id="fileName" class="file-name"></div>
+          <div id="fileMeta" class="file-meta"></div>
+        </div>
+        <button id="resetButton" class="ghost" type="button">Change image</button>
+      </div>
+
+      <div class="preview-wrap">
+        <img id="preview" alt="Selected image preview" />
+      </div>
+
+      <div class="controls">
+        <label>
+          <span>Convert to</span>
+          <select id="formatSelect">
+            <option value="image/jpeg">JPEG</option>
+            <option value="image/png">PNG</option>
+          </select>
+        </label>
+
+        <label id="qualityControl">
+          <span>JPEG quality <strong id="qualityValue">90</strong>%</span>
+          <input id="quality" type="range" min="10" max="100" value="90" />
+        </label>
+      </div>
+
+      <div id="status" class="status" role="status"></div>
+      <button id="convertButton" class="primary convert" type="button">Convert & download</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
